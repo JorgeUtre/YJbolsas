@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YJ Bolsas - Bolsas y Artículos Plásticos</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+
+        /* Header y navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon span {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .logo-subtext {
+            font-size: 0.875rem;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        nav a.active {
+            color: #2563eb;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2563eb;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #inicio {
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: #2563eb;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .hero-image-container {
+            background: linear-gradient(45deg, #e0f2fe, #dbeafe);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #10b981;
+            border-radius: 50%;
+        }
+
+        .company-info p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Productos Section */
+        #productos {
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Acerca de Nosotros Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .info-section p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .company-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .company-detail {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .company-detail span:first-child {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .company-detail span:last-child {
+            color: #64748b;
+        }
+
+        /* Contacto Section */
+        #contacto {
+            background-color: white;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: 1rem;
+            padding: 2rem;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon span {
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .footer-logo-subtext {
+            font-size: 0.875rem;
+            color: #93c5fd;
+        }
+
+        .footer-description {
+            color: #e2e8f0;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #93c5fd;
+        }
+
+        .footer-contact {
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-divider {
+            border-top: 1px solid #334155;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-copyright {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero, .about, .contact {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content, .about-content {
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-image-container, .about-image-container {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span>YJ</span>
+                </div>
+                <div>
+                    <h1 class="logo-text">YJ Bolsas</h1>
+                    <p class="logo-subtext">Calidad en plásticos</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Acerca de Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                ☰
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Soluciones en <span>bolsas plásticas</span> de calidad</h1>
+                    <p>YJ Bolsas ofrece una amplia gama de productos plásticos para empaque y uso comercial, garantizando calidad, resistencia y precios competitivos para su negocio.</p>
+                    <div class="hero-buttons">
+                        <a href="#productos" class="btn btn-primary">Ver Productos</a>
+                        <a href="#contacto" class="btn btn-secondary">Contactarnos</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://totalpopint.com/wp-content/uploads/2021/04/bolsas-ecologicas.jpg" alt="Bolsas plásticas YJ" class="hero-image">
+                    <div class="company-info">
+                        <div class="company-info-item">
+                            <div class="status-dot"></div>
+                            <span>Microempresa</span>
+                        </div>
+                        <p>NIT: 700516907-1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Productos</h2>
+                <p>Ofrecemos una amplia variedad de bolsas plásticas y artículos plásticos para empaque, diseñados para satisfacer las necesidades de diferentes tipos de negocios.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://img.freepik.com/vector-premium/conjunto-realista-empaques-bolsas-compras-papel-compras-productos-compras-transporte-productos-tienda-o-supermercado-ilustracion-aislada-sobre-fondo-blanco_255502-1.jpg" alt="Bolsas de Empaque" class="product-image">
+                    <div class="product-content">
+                        <h3>Bolsas de Empaque</h3>
+                        <p>Bolsas resistentes para empaque de productos, disponibles en diferentes tamaños y grosores.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://static.mercadonegro.pe/wp-content/uploads/2022/08/05160803/Las-nuevas-bolsas-de-Balenciaga.webp" alt="Bolsas de Basura" class="product-image">
+                    <div class="product-content">
+                        <h3>Bolsas de Basura</h3>
+                        <p>Bolsas de alta resistencia para manejo de residuos, ideales para hogares y negocios.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_956194-MLM32903100300_112019-O.webp" alt="Bolsas Zipper" class="product-image">
+                    <div class="product-content">
+                        <h3>Bolsas Zipper</h3>
+                        <p>Bolsas con cierre hermético para almacenamiento de alimentos y productos delicados.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.retif.es/media/catalog/product/9/5/9584704_Retif_PH_01.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=864&width=864&canvas=864:864" alt="Bolsas Transparentes" class="product-image">
+                    <div class="product-content">
+                        <h3>Bolsas Transparentes</h3>
+                        <p>Bolsas transparentes para exhibición de productos y empaque minorista.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://w7.pngwing.com/pngs/342/862/png-transparent-handbag-tote-bag-zipper-messenger-bags-handbags.png" alt="Bolsas de Mano" class="product-image">
+                    <div class="product-content">
+                        <h3>Bolsas de Mano</h3>
+                        <p>Bolsas con asas para transporte de productos, ideales para tiendas y supermercados.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.plastico.com/uploads/news-pictures/pphoto-1207.jpeg" alt="Artículos Plásticos" class="product-image">
+                    <div class="product-content">
+                        <h3>Artículos Plásticos</h3>
+                        <p>Diversos productos plásticos para uso comercial e industrial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acerca de Nosotros Section -->
+    <section id="nosotros">
+        <div class="container">
+            <div class="about">
+                <div class="about-image-container">
+                    <img src="https://www.uniban.com/wp-content/uploads/2022/11/bolsas-para-agricultura-polyban-scaled.jpg" alt="Equipo YJ Bolsas" class="about-image">
+                    <div class="info-section" style="background: linear-gradient(45deg, #f0f9ff, #e0f2fe); margin-top: 1.5rem;">
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar soluciones en bolsas plásticas de alta calidad que satisfagan las necesidades de nuestros clientes, con un enfoque en la responsabilidad, servicio y competitividad.</p>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>Sobre YJ Bolsas</h2>
+                    <div class="info-section">
+                        <h3>Información de la Empresa</h3>
+                        <div class="company-details">
+                            <div class="company-detail">
+                                <span>Nombre:</span>
+                                <span>YJ Bolsas</span>
+                            </div>
+                            <div class="company-detail">
+                                <span>Actividad principal:</span>
+                                <span>Comercio al por menor de bolsas plásticas para empaque y artículos plásticos</span>
+                            </div>
+                            <div class="company-detail">
+                                <span>NIT:</span>
+                                <span>700516907-1</span>
+                            </div>
+                            <div class="company-detail">
+                                <span>Tamaño:</span>
+                                <span>Microempresa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <h3>Nuestra Actividad</h3>
+                        <p>En YJ Bolsas nos especializamos en el comercio al por menor de bolsas plásticas para empaque y diversos artículos plásticos. Nuestro compromiso es ofrecer productos de calidad que satisfagan las necesidades de nuestros clientes, desde pequeños negocios hasta grandes establecimientos comerciales.</p>
+                    </div>
+                    <div class="info-section">
+                        <h3>Compromiso de Calidad</h3>
+                        <p>Trabajamos con proveedores confiables para garantizar que todos nuestros productos cumplan con los estándares de resistencia y durabilidad necesarios para proteger sus productos y mantener la satisfacción de sus clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto">
+        <div class="container">
+            <div class="contact">
+                <div class="contact-info">
+                    <h3>Contáctanos</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>CALLE 3 B SUR CARRERA 29 20, INTERIOR 401<br>Medellín, Antioquia, 0500, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <p>carcasjua241070@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>321 3765215</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>NIT</h4>
+                            <p>700516907-1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="321 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos sobre tus necesidades..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div>
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <span>YJ</span>
+                    </div>
+                    <div>
+                        <h3 class="footer-logo-text">YJ Bolsas</h3>
+                        <p class="footer-logo-subtext">Calidad en plásticos</p>
+                    </div>
+                </div>
+                <p class="footer-description">Tu solución confiable en bolsas plásticas y artículos plásticos para empaque.</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Acerca de Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Información de Contacto</h4>
+                <div class="footer-contact">
+                    <p>📞 321 3765215</p>
+                    <p>✉️ carcasjua241070@gmail.com</p>
+                    <p>📍 Medellín, Antioquia</p>
+                    <p>🏛️ NIT: 700516907-1</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider">
+            <p class="footer-copyright">© <span id="currentYear"></span> YJ Bolsas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para funcionalidades
+        document.addEventListener('DOMContentLoaded', function() {
+            // Establecer el año actual en el footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Manejo de la navegación activa
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            // Función para actualizar la sección activa
+            function updateActiveSection() {
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', updateActiveSection);
+            updateActiveSection(); // Llamar una vez al cargar
+
+            // Manejo del formulario de contacto
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Obtener los valores del formulario
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const telefono = document.getElementById('telefono').value;
+                const mensaje = document.getElementById('mensaje').value;
+                
+                // Simular envío del formulario
+                alert('Gracias por tu mensaje, ' + nombre + '. Nos pondremos en contacto contigo pronto.');
+                
+                // Resetear el formulario
+                contactForm.reset();
+            });
+
+            // Manejo del menú móvil (simplificado)
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const nav = document.querySelector('nav ul');
+            
+            mobileMenu.addEventListener('click', function() {
+                alert('Esta es una versión de escritorio. En un dispositivo móvil, aquí se desplegaría el menú.');
+            });
+
+            // Añadir efecto de scroll suave para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
